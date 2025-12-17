@@ -4,35 +4,44 @@
     <meta charset="UTF-8">
     <title>Battery Sulfation Predictor</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- PWA -->
+    <!-- PWA REQUIRED -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2e7d32">
 
+    <!-- MOBILE VIEW -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLE -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <h1>Battery Sulfation Predictor</h1>
 
-    <input id="voltage" type="number" placeholder="Voltage">
-    <input id="current" type="number" placeholder="Current">
-    <input id="percentage" type="number" placeholder="Percentage">
+    <input type="number" id="voltage" placeholder="Enter Voltage">
+    <input type="number" id="current" placeholder="Enter Current">
+    <input type="number" id="percentage" placeholder="Enter Percentage">
 
     <button onclick="predict()">Predict</button>
 
     <h3 id="efficiency">Efficiency: --</h3>
     <h3 id="sulfation">Sulfation: --</h3>
 
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 
-    <!-- Service Worker -->
+    <!-- SERVICE WORKER REGISTER -->
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js");
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("sw.js")
+                .then(() => console.log("Service Worker Registered"))
+                .catch(err => console.log("SW registration failed:", err));
+            });
         }
     </script>
 
 </body>
 </html>
+
