@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battery Sulfation Predictor</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2e7d32">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Battery Sulfation Predictor</h1>
+
+    <input id="voltage" type="number" placeholder="Voltage">
+    <input id="current" type="number" placeholder="Current">
+    <input id="percentage" type="number" placeholder="Percentage">
+
+    <button onclick="predict()">Predict</button>
+
+    <h3 id="efficiency">Efficiency: --</h3>
+    <h3 id="sulfation">Sulfation: --</h3>
+
+    <script src="script.js"></script>
+
+    <!-- Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
+
+</body>
+</html>
