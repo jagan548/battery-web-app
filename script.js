@@ -11,7 +11,7 @@ async function predict() {
     try {
         // Make the API call
         const response = await fetch(
-            "https://battery-sulfation-api.onrender.com/predict",
+            "ttps://jagan548.github.io/battery-sulfation-api/",
             {
                 method: "POST",
                 headers: {
